@@ -9,10 +9,10 @@ print("\nPlease asnswer each question in lower case Eg. a, b, c")
 # TODO give feedback to user if they give an invalid answer
 def ask(question, answers):
     response = None
-    if response not in answers:
-        print("input actual answer")
     while response not in answers:
         response = input(question)
+        if response not in answers:
+            print ("\nPlease input an actual answer")
     return response
 
 
@@ -21,7 +21,7 @@ if q1 == "a":
     score = score + 5
 
 
-q2 = input("Question 2 - What did peugeot make before it made cars\na. Bicycles\nb. Pepper grinders\nc. Corsets\nd. Ammunition\ne. All of the above\n")
+q2 = ask("Question 2 - What did peugeot make before it made cars\na. Bicycles\nb. Pepper grinders\nc. Corsets\nd. Ammunition\ne. All of the above\n", ['a', 'b', 'c', 'd', 'e'])
 if q2 == "a":
     score = score
 elif q2 == "b":
@@ -35,7 +35,7 @@ elif q2 == "e":
 else:
     score = score
 
-q3 = input("Question 3 - What car holds the lap record for the Nurburgring\na. Ferrari Laferrari\nb. Bughatti Chiron\nc. Porche 919 Hybrid\nd. Mercedes W12 Formula 1 car\n")
+q3 = ask("Question 3 - What car holds the lap record for the Nurburgring\na. Ferrari Laferrari\nb. Bughatti Chiron\nc. Porche 919 Hybrid\nd. Mercedes W12 Formula 1 car\n", ['a', 'b', 'c','d'])
 if q3 == "a":
     score = score
 if q3 == "b":
@@ -47,7 +47,7 @@ if q3 == "d":
 else:
     score = score
 
-q4 = input("Question 4 - When was the first car made\na. 1873\nb. 1886\nc. 1904\nd. 1914\n")
+q4 = ask("Question 4 - When was the first car made\na. 1873\nb. 1886\nc. 1904\nd. 1914\n", ['a', 'b', 'c','d'])
 if q4 == "a":
     score = score
 if q4 == "b":
@@ -59,7 +59,7 @@ if q4 == "d":
 else:
     score = score
 
-q5 = input("Question 5 - Which car has the fastest accelaration\na. BMW M5\nb. Audi RS5\nc. Mercedes c300\n ")
+q5 = ask("Question 5 - Which car has the fastest accelaration\na. BMW M5\nb. Audi RS5\nc. Mercedes c300\n", ['a', 'b', 'c'])
 if q5 == "a":
     score = score + 5
 if q5 == "b":
@@ -69,7 +69,7 @@ if q5 == "c":
 else:
     score = score
 
-q6 = input("Question 6 - What car won the last Bathurst race\na. Holden commodore VX\nb. Ford mustang MK6\nc. Holden commodore ZB\n")
+q6 = ask("Question 6 - What car won the last Bathurst race\na. Holden commodore VX\nb. Ford mustang MK6\nc. Holden commodore ZB\n", ['a', 'b', 'c'])
 if q6 == "a":
     score = score
 if q6 == "b":
@@ -79,7 +79,7 @@ if q6 == "c":
 else:
     score = score
 
-q7 = input("Question 7 - What car company owns Porche\na. Maserati\nb. Audi\nc. Mercedes\nd. Volkswagen\n")
+q7 = ask("Question 7 - What car company owns Porche\na. Maserati\nb. Audi\nc. Mercedes\nd. Volkswagen\n", ['a', 'b', 'c','d'])
 if q7 == "a":
     score = score
 if q7 == "b":
@@ -91,7 +91,7 @@ if q7 == "d":
 else:
     score = score
 
-q8 = input("Question 8 - Which car will win in a quarte mile drag race\na. Porche 918 Spyder\nb. Mclaren P1\nc. Ferrari Laferrari")
+q8 = ask("Question 8 - Which car will win in a quarte mile drag race\na. Porche 918 Spyder\nb. Mclaren P1\nc. Ferrari Laferrari", ['a', 'b', 'c'])
 if q8 == "a":
     score = score
 if q8 == "b":
@@ -101,7 +101,7 @@ if q8 == "c":
 else:
     score = score
 
-q9 = input("Question 8 - ")
+q9 = ask("Question 9 - Which car has a higher top speed\na. 1991 Bughatti EB110 SS\nb. 1994 Toyota Supra\nc. 1970 Porche 917", ['a', 'b', 'c'])
 if q9 == "a":
     score = score
 if q9 == "b":
@@ -110,3 +110,6 @@ if q9 == "c":
     score = score + 5
 else:
     score = score
+
+q10
+

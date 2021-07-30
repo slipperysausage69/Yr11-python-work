@@ -1,13 +1,16 @@
-# epic car quiz
-
+# imports
+import time
+import random
 score = 0
 
 print("\n\nWelcome to the epic car quiz")
-print("\nPlease asnswer each question in lower case Eg. a, b, c")
+print("\nPlease asnswer each question in lower case Eg. a, b, c") # TODO take care of this yourself rather than relying on the user
 
-# TODO make a function ask. Make it ask the question and only allow valid answers.
-# TODO give feedback to user if they give an invalid answer
+
+
 def ask(question, answers):
+    #TODO - docstring
+    ''' ask fuction that doesent allow other answers '''
     response = None
     while response not in answers:
         response = input(question)
@@ -16,100 +19,63 @@ def ask(question, answers):
     return response
 
 
-q1 = ask("\nQuestion 1 - What is faster in a quarter mile drag race\na. Porche 911 GT3 RS\nb. Honda Acura NSX\nc. Lamborghini Countach\n", ['a', 'b', 'c'])
-if q1 == "a":
-    score = score + 5
 
+#list of questions    
+questions = [
+    {'question':"What is faster in a quarter mile drag race\na. Porche 911 GT3 RS\nb. Honda Acura NSX\nc. Lamborghini Countach\n", "options":['a', 'b', 'c'], "correct":'a'},
+    {'question':"What did peugeot make before it made cars\na. Bicycles\nb. Pepper grinders\nc. Corsets\nd. Ammunition\ne. All of the above\n", "options":['a', 'b', 'c', 'd', 'e'], "correct":'e'},
+    {'question':"What car holds the lap record for the Nurburgring\na. Ferrari Laferrari\nb. Bughatti Chiron\nc. Porche 919 Hybrid\nd. Mercedes W12 Formula 1 car\n", "options":['a', 'b', 'c', 'd'], "correct":'c'},
+    {'question':"When was the first car made\na. 1873\nb. 1886\nc. 1904\nd. 1914\n", "options":['a', 'b', 'c','d'], "correct":'b'},
+    {'question':"Which car has the fastest accelaration\na. BMW M5\nb. Audi RS5\nc. Mercedes c300\n", "options":['a', 'b', 'c'], "correct":'a'},
+    {'question':"What car won the last Bathurst race\na. Holden commodore VX\nb. Ford mustang MK6\nc. Holden commodore ZB\n", "options":['a', 'b', 'c'], "correct":'b'},
+    {'question':"What car company owns Porche\na. Maserati\nb. Audi\nc. Mercedes\nd. Volkswagen\n", "options":['a', 'b', 'c','d'], "correct":'d'},
+    {'question':"Which car will win in a quarte mile drag race\na. Porche 918 Spyder\nb. Mclaren P1\nc. Ferrari Laferrari\n", "options":['a', 'b', 'c'], "correct":'c'},
+    {'question':"Which car has a higher top speed\na. 1991 Bughatti EB110 SS\nb. 1994 Toyota Supra\nc. 1970 Porche 917\n", "options":['a', 'b', 'c'], "correct":'c'},
+    {'question':"Which of these manufacturers is NOT Fremch\na. Bugatti\nb. Renault\nc. Peageot\nd. Fiat\ne. Citroen\n", "options":['a', 'b', 'c', 'd', 'e'], "correct":'d'},
+    {'question':"What car manufacturer has the most WRC victories\na. Audi\nb. Lancia\nc. Subaru\nd. Ford\n", "options":['a', 'b', 'c','d'], "correct":'b'},
+    {'question':"Who is the first driver for the Alpha Tauri Formula 1 team\na. Pierre Gasly\nb. Max Verstappen\nc. Lewis Hamilton\n", "options":['a', 'b', 'c'], "correct":'a'},
+    {'question':"What Formula 1 team is the current reighning champion\na. Alpha Tauri\nb. Red Bull\nc. Mercedes\nd. Ferrari\n", "options":['a', 'b', 'c','d'], "correct":'c'},
+    {'question':"What does BMW stand for\na. Bayerische Motoren Werke\nb. Berlin Motor Wagons\nc. Brandenburg machten Wehrmacht\n", "options":['a', 'b', 'c'], "correct":'a'},
+    {'question':"Which manufacturer makes the Charger\na. Ford\nb. Dodge\nc. Chevrolet\n", "options":['a', 'b', 'c'], "correct":'b'},
+    {'question':"What kind of engine does a mlcaren P1 have\na. v12\nb. v10\nc. Hybrid V8\nd. Hybrid v12 with Kinetic energy recovery system\n", "options":['a', 'b', 'c','d'], "correct":'c'},
+    {'question':"What is the most expensive car to buy from the manufacturer\na. Pagani Zonda\nb. BugattiLa Voiture Noire\nc. Mclaren Senna\n", "options":['a', 'b', 'c'], "correct":'b'},
+    {'question':"What is the estimated price for the soon to be released Rolls Royce Boat Tail\na. $38 Million\nb. $31 Million\nc. $27 Million\nd. $18.7 Million\n", "options":['a', 'b', 'c','d'], "correct":'a'},
+    {'question':"What was the best race in motorsport\na. 90's Formula 1\nb. Le Mans\nc. Groub B rally\n", "options":['a', 'b', 'c'], "correct":'c'},
+    {'question':"Which car company is from the Czech Republic\na. Dacia\nb. Volvo\nc. Saab\nd. Skoda\n", "options":['a', 'b', 'c','d'], "correct":'d'}
+]
 
-q2 = ask("Question 2 - What did peugeot make before it made cars\na. Bicycles\nb. Pepper grinders\nc. Corsets\nd. Ammunition\ne. All of the above\n", ['a', 'b', 'c', 'd', 'e'])
-if q2 == "a":
-    score = score
-elif q2 == "b":
-    score = score
-elif q2 == "c":
-    score = score
-elif q2 == "d":
-    score = score
-elif q2 == "e":
-    score = score + 5
-else:
-    score = score
+qnumber = 1
 
-q3 = ask("Question 3 - What car holds the lap record for the Nurburgring\na. Ferrari Laferrari\nb. Bughatti Chiron\nc. Porche 919 Hybrid\nd. Mercedes W12 Formula 1 car\n", ['a', 'b', 'c','d'])
-if q3 == "a":
-    score = score
-if q3 == "b":
-    score = score
-if q3 == "c":
-    score = score + 5
-if q3 == "d":
-    score = score
-else:
-    score = score
+random.shuffle(questions)
+# marks questions
+for question in questions:
+    response = ask(question['question'], question['options'])
+    if response == question['correct']:
+        score += 5
 
-q4 = ask("Question 4 - When was the first car made\na. 1873\nb. 1886\nc. 1904\nd. 1914\n", ['a', 'b', 'c','d'])
-if q4 == "a":
-    score = score
-if q4 == "b":
-    score = score + 5
-if q4 == "c":
-    score = score
-if q4 == "d":
-    score = score
-else:
-    score = score
+#scoring system 
+print (f"you scored {score}%")
+if score >= 90:
+    grade = "A+"
+elif score >= 80:
+    grade = "A"
+elif score >= 70:
+    grade = "B"
+elif score >= 60:
+    grade = "C"
+elif score >= 50:
+    grade = "D"
+elif score >= 30:
+    grade = "E"
+elif score >= 0:
+    grade = "F"
 
-q5 = ask("Question 5 - Which car has the fastest accelaration\na. BMW M5\nb. Audi RS5\nc. Mercedes c300\n", ['a', 'b', 'c'])
-if q5 == "a":
-    score = score + 5
-if q5 == "b":
-    score = score
-if q5 == "c":
-    score = score
-else:
-    score = score
+print(grade)
+ 
+# os.system("ls")gvb
+# os.system('clear')
 
-q6 = ask("Question 6 - What car won the last Bathurst race\na. Holden commodore VX\nb. Ford mustang MK6\nc. Holden commodore ZB\n", ['a', 'b', 'c'])
-if q6 == "a":
-    score = score
-if q6 == "b":
-    score = score + 5
-if q6 == "c":
-    score = score
-else:
-    score = score
-
-q7 = ask("Question 7 - What car company owns Porche\na. Maserati\nb. Audi\nc. Mercedes\nd. Volkswagen\n", ['a', 'b', 'c','d'])
-if q7 == "a":
-    score = score
-if q7 == "b":
-    score = score
-if q7 == "c":
-    score = score
-if q7 == "d":
-    score = score + 5
-else:
-    score = score
-
-q8 = ask("Question 8 - Which car will win in a quarte mile drag race\na. Porche 918 Spyder\nb. Mclaren P1\nc. Ferrari Laferrari", ['a', 'b', 'c'])
-if q8 == "a":
-    score = score
-if q8 == "b":
-    score = score
-if q8 == "c":
-    score = score + 5
-else:
-    score = score
-
-q9 = ask("Question 9 - Which car has a higher top speed\na. 1991 Bughatti EB110 SS\nb. 1994 Toyota Supra\nc. 1970 Porche 917", ['a', 'b', 'c'])
-if q9 == "a":
-    score = score
-if q9 == "b":
-    score = score
-if q9 == "c":
-    score = score + 5
-else:
-    score = score
-
-q10
-
+# TODO
+# ask quesrtions in a defferent order each time
+# put the correct ans in a different place each time
+# allow user to play again

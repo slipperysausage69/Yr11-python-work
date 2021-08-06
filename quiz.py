@@ -3,22 +3,26 @@ import time
 import random
 score = 0
 
-print("\n\nWelcome to the epic car quiz")
-print("\nPlease asnswer each question in lower case Eg. a, b, c") # TODO take care of this yourself rather than relying on the user
+print("\n\nWelcome to the car quiz")
 
+def next_number():
+    '''Generates question numbers'''
+    num = 0
+    while True:
+        num += 1
+        yield num
 
+qnum = next_number()
 
 def ask(question, answers):
-    #TODO - docstring
     ''' ask fuction that doesent allow other answers '''
     response = None
+    number = (next(qnum))
     while response not in answers:
-        response = input(question)
+        response = input(f"Question {number}: "+question).lower()
         if response not in answers:
             print ("\nPlease input an actual answer")
     return response
-
-
 
 #list of questions    
 questions = [
@@ -41,12 +45,11 @@ questions = [
     {'question':"What is the most expensive car to buy from the manufacturer\na. Pagani Zonda\nb. BugattiLa Voiture Noire\nc. Mclaren Senna\n", "options":['a', 'b', 'c'], "correct":'b'},
     {'question':"What is the estimated price for the soon to be released Rolls Royce Boat Tail\na. $38 Million\nb. $31 Million\nc. $27 Million\nd. $18.7 Million\n", "options":['a', 'b', 'c','d'], "correct":'a'},
     {'question':"What was the best race in motorsport\na. 90's Formula 1\nb. Le Mans\nc. Groub B rally\n", "options":['a', 'b', 'c'], "correct":'c'},
-    {'question':"Which car company is from the Czech Republic\na. Dacia\nb. Volvo\nc. Saab\nd. Skoda\n", "options":['a', 'b', 'c','d'], "correct":'d'}
+    {'question':"Which car company is from the Czech Republic\na. Dacia\nb. Volvo\nc. Saab\nd. Skoda\n", "options":['a', 'b', 'c','d'], "correct":'d'} 
 ]
-
-qnumber = 1
-
+#randomises questions
 random.shuffle(questions)
+
 # marks questions
 for question in questions:
     response = ask(question['question'], question['options'])
@@ -70,12 +73,7 @@ elif score >= 30:
 elif score >= 0:
     grade = "F"
 
-print(grade)
+print(f"Grade: {grade}")
  
-# os.system("ls")gvb
+# os.system("ls")
 # os.system('clear')
-
-# TODO
-# ask quesrtions in a defferent order each time
-# put the correct ans in a different place each time
-# allow user to play again
